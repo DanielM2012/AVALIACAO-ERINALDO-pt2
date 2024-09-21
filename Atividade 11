@@ -1,0 +1,31 @@
+11- Escreva um programa que peça ao usuário para inserir as notas de 8 alunos e
+classifique cada nota em conceitos: A (nota entre 9 e 10), B (nota entre 7 e 8.9), C
+(nota entre 5 e 6.9), D (nota entre 3 e 4.9) ou F (nota abaixo de 3).
+
+#include <stdio.h>
+
+int main() {
+float nota;
+int i;
+
+for (i = 1; i <= 8; i++) {
+    printf("Digite a nota do aluno %d: ", i);
+    scanf("%f", &nota);
+
+    if (nota >= 9.0 && nota <= 10.0) {
+        printf("Aluno %d: A\n", i);
+    } else if (nota >= 7.0 && nota < 9.0) {
+        printf("Aluno %d: B\n", i);
+    } else if (nota >= 5.0 && nota < 7.0) {
+        printf("Aluno %d: C\n", i);
+    } else if (nota >= 3.0 && nota < 5.0) {
+        printf("Aluno %d: D\n", i);
+    } else if (nota < 3.0) {
+        printf("Aluno %d: F\n", i);
+    } else {
+        printf("Nota inválida para o aluno %d\n", i);
+    }
+}
+
+return 0;
+}
