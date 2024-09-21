@@ -1,0 +1,35 @@
+7- Crie um programa que peça ao usuário para inserir as notas de 5 alunos. Para
+cada aluno, o programa deve calcular a média. Se a média for maior ou igual a 7.0,
+o aluno é aprovado; caso contrário, ele é reprovado. Ao final, o programa deve exibir
+a média de cada aluno e se ele foi aprovado ou reprovado.
+
+#include <stdio.h>
+
+int main() {
+float notas[5];
+float media;
+char situacao[5][10];
+
+for (int i = 0; i < 5; i++) {
+    printf("Digite a nota do aluno %d: ", i + 1);
+    scanf("%f", &notas[i]);
+}
+
+for (int i = 0; i < 5; i++) {
+
+    media = notas[i];
+
+    if (media >= 7.0) {
+        snprintf(situacao[i], sizeof(situacao[i]), "Aprovado");
+    } else {
+        snprintf(situacao[i], sizeof(situacao[i]), "Reprovado");
+    }
+}
+
+printf("\nResultados:\n");
+for (int i = 0; i < 5; i++) {
+    printf("Aluno %d - Nota: %.2f - %s\n", i + 1, notas[i], situacao[i]);
+}
+
+return 0;
+}
