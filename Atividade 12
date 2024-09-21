@@ -1,0 +1,36 @@
+
+12- Escreva um programa que solicite ao usuário 6 números inteiros. Para cada
+número, verifique se ele é par ou ímpar. Se o número for par, verifique se é maior
+que 10 ou não. Se for ímpar, verifique se é menor que 50 ou não.
+
+#include <stdio.h>
+
+int main() {
+int num;
+int i;
+
+for (i = 1; i <= 6; i++) {
+    printf("Digite o número %d: ", i);
+    scanf("%d", &num);
+
+    
+    if (num % 2 == 0) {  
+        printf("O número %d é par", num);
+        if (num > 10) {
+            printf(" e maior que 10.\n");
+        } else {
+            printf(" e não é maior que 10.\n");
+        }
+    } else {  
+        printf("O número %d é ímpar", num);
+        if (num < 50) {
+            printf(" e menor que 50.\n");
+        } else {
+            printf(" e não é menor que 50.\n");
+        }
+    }
+}
+
+return 0;
+}
+
