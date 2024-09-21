@@ -1,0 +1,55 @@
+16- Escreva um programa que apresente um menu com as seguintes opções:
+
+Calcular o fatorial de um número.
+Sair.
+O programa deve solicitar ao usuário um número inteiro e calcular o seu fatorial. O
+menu deve continuar sendo exibido até que o usuário escolha a opção de sair.
+
+#include <stdio.h>
+
+void mostrar_menu() {
+printf("Menu:\n");
+printf("1. Calcular o fatorial de um número\n");
+printf("2. Sair\n");
+}
+
+unsigned long long calcular_fatorial(int numero) {
+if (numero == 0 || numero == 1) {
+return 1;
+}
+unsigned long long fatorial = 1;
+for (int i = 2; i <= numero; i++) {
+fatorial *= i;
+}
+return fatorial;
+}
+
+int main() {
+int opcao;
+int numero;
+
+do {
+    mostrar_menu();
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            printf("Digite o número desejado: ");
+            scanf("%d", &numero);
+            if (numero < 0) {
+                printf("Número inválido! Por favor, insira um número inteiro não negativo.\n");
+            } else {
+                printf("O fatorial de %d é %llu\n", numero, calcular_fatorial(numero));
+            }
+            break;
+        case 2:
+            printf("Saindo...\n");
+            break;
+        default:
+            printf("Opção inválida! Tente novamente.\n");
+    }
+} while (opcao != 2);
+
+return 0;
+}
