@@ -1,0 +1,38 @@
+6- Escreva um programa que solicite dois números inteiros positivos ao usuário: um
+valor inicial e um valor final. O programa deve então exibir todos os números primos
+dentro desse intervalo. Se não houver números primos no intervalo, o programa
+deve informar isso.
+
+#include <stdio.h>
+
+int ePrimo(int num) {
+if (num <= 1) return 0;
+for (int i = 2; i <= num / 2; i++) {
+if (num % i == 0) return 0;
+}
+return 1;
+}
+
+int main() {
+int inicio, fim;
+int encontrouPrimo = 0;
+
+printf("Insira o valor inicial: ");
+scanf("%d", &inicio);
+printf("Insira o valor final: ");
+scanf("%d", &fim);
+
+printf("Números primos no intervalo de %d a %d:\n", inicio, fim);
+for (int i = inicio; i <= fim; i++) {
+    if (ePrimo(i)) {
+        printf("%d ", i);
+        encontrouPrimo = 1;
+    }
+}
+
+if (!encontrouPrimo) {
+    printf("Não há números primos no intervalo.\n");
+}
+
+return 0;
+}
